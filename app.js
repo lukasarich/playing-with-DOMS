@@ -6,13 +6,30 @@ const descriptionButton = document.querySelector('button.description');
 const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
 const removeItemButton = document.querySelector('button.removeItemButton');
+const listItems = document.getElementsByTagName('li');
+
+
+
+listDiv.addEventListener('mouseover', (event) => {
+  if (event.target.tagName == 'LI') {
+    event.target.textContent = event.target.textContent.toUpperCase();
+  }
+});
+
+listDiv.addEventListener('mouseout', (event) => {
+  if (event.target.tagName == 'LI') {
+    event.target.textContent = event.target.textContent.toLowerCase();
+  }
+});
+
+
 
 toggleList.addEventListener('click', () => {
   if (listDiv.style.display == 'none') {
-    toggleList.textContent = 'Hide List';
+    toggleList.textContent = 'Hide list';
     listDiv.style.display = 'block';
   } else {
-    toggleList.textContent = 'Show List';
+    toggleList.textContent = 'Show list';
     listDiv.style.display = 'none';
   }
 });
@@ -22,7 +39,6 @@ descriptionButton.addEventListener('click', () => {
   descriptionInput.value = '';
 });
 
-
 addItemButton.addEventListener('click', () => {
   let ul = document.getElementsByTagName('ul')[0];
   let li = document.createElement('li');
@@ -30,7 +46,6 @@ addItemButton.addEventListener('click', () => {
   ul.appendChild(li);
   addItemInput.value = '';
 });
-
 
 removeItemButton.addEventListener('click', () => {
   let ul = document.getElementsByTagName('ul')[0];
